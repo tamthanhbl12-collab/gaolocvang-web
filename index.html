@@ -183,6 +183,59 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
 footer{background:var(--green-dark);color:rgba(255,255,255,0.65);text-align:center;padding:2rem 1.5rem;font-size:0.85rem}
 footer strong{color:var(--gold-light)}
 
+/* NAV */
+.nav{
+  background:#fff;border-bottom:1px solid #e8e2d0;
+  display:flex;justify-content:center;overflow-x:auto;
+  position:sticky;top:0;z-index:100;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav-item{
+  padding:14px 20px;font-size:0.85rem;font-weight:500;
+  color:var(--text-muted);cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all 0.2s;white-space:nowrap;
+  background:none;border-top:none;border-left:none;border-right:none;
+}
+.nav-item:hover{color:var(--green-dark)}
+.nav-item.active{color:var(--green-dark);border-bottom:3px solid var(--gold)}
+
+/* GIỚI THIỆU */
+.gioithieu-wrap{background:#fff;padding:5rem 1.5rem;display:none}
+.gioithieu-wrap.visible{display:block}
+.timeline{max-width:700px;margin:2.5rem auto 0;position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green-light)}
+.tl-item{position:relative;margin-bottom:2rem;padding-left:1.5rem}
+.tl-dot{
+  position:absolute;left:-2.4rem;top:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--gold);
+}
+.tl-year{font-size:0.75rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-bottom:4px}
+.tl-title{font-weight:600;font-size:0.95rem;color:var(--green-dark);margin-bottom:4px}
+.tl-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
+
+/* FANPAGE */
+.fanpage-box{
+  background:var(--green-light);border-radius:var(--radius);
+  padding:1.5rem;margin-top:1.5rem;
+  display:flex;align-items:center;gap:16px;
+}
+.fanpage-icon{
+  width:48px;height:48px;border-radius:10px;
+  background:#1877f2;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;font-size:1.5rem;
+}
+.fanpage-label{font-size:0.75rem;color:var(--text-muted);margin-bottom:4px}
+.fanpage-name{font-weight:600;font-size:0.9rem;color:var(--green-dark)}
+.fanpage-btn{
+  margin-left:auto;background:var(--green-dark);color:#fff;
+  padding:8px 16px;border-radius:8px;font-size:0.82rem;
+  font-weight:500;text-decoration:none;white-space:nowrap;
+}
+.fanpage-btn:hover{background:var(--green-mid)}
+
 @media(max-width:640px){
   .stats{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
@@ -197,10 +250,400 @@ footer strong{color:var(--gold-light)}
   <div class="hero-badge">Bạc Liêu · Đồng bằng sông Cửu Long</div>
   <h1>Lúa Gạo<br><span>Lộc Vàng</span></h1>
   <p class="hero-sub">Cung cấp các loại gạo đặc sản, gạo thông thường và phụ phẩm lúa gạo — thẳng từ vùng lúa Bạc Liêu.</p>
-  <div class="update-badge"><span class="dot"></span>Giá cập nhật hàng tuần</div>
-  <div class="hero-cta">
-    <button class="btn-primary" onclick="openModal('banggia')">Xem bảng giá</button>
-    <a href="#lien-he" class="btn-outline">Liên hệ mua hàng</a>
+  <div style="width:100%;max-width:700px;margin-top:2rem;position:relative">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;display:block">
+
+      <!-- Bầu trời -->
+      <rect x="0" y="0" width="700" height="340" fill="#c8e8f5"/>
+      <rect x="0" y="0" width="700" height="160" fill="#a8d8f0"/>
+
+      <!-- Núi xa -->
+      <ellipse cx="200" cy="145" rx="130" ry="55" fill="#8aaa88" opacity="0.5"/>
+      <ellipse cx="350" cy="138" rx="110" ry="48" fill="#7a9a78" opacity="0.45"/>
+      <ellipse cx="500" cy="148" rx="120" ry="50" fill="#8aaa88" opacity="0.4"/>
+
+      <!-- Mây -->
+      <ellipse cx="100" cy="55" rx="55" ry="20" fill="white" opacity="0.88"/>
+      <ellipse cx="70" cy="63" rx="32" ry="16" fill="white" opacity="0.88"/>
+      <ellipse cx="140" cy="63" rx="35" ry="16" fill="white" opacity="0.88"/>
+
+      <ellipse cx="340" cy="45" rx="60" ry="18" fill="white" opacity="0.8"/>
+      <ellipse cx="305" cy="53" rx="35" ry="15" fill="white" opacity="0.8"/>
+      <ellipse cx="382" cy="53" rx="38" ry="15" fill="white" opacity="0.8"/>
+
+      <ellipse cx="580" cy="60" rx="50" ry="17" fill="white" opacity="0.75"/>
+      <ellipse cx="548" cy="68" rx="30" ry="13" fill="white" opacity="0.75"/>
+      <ellipse cx="618" cy="68" rx="32" ry="13" fill="white" opacity="0.75"/>
+
+      <!-- Chim bay xa -->
+      <g stroke="#557" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6">
+        <path d="M480,75 Q486,70 492,75"/><path d="M494,72 Q500,67 506,72"/>
+        <path d="M515,80 Q520,75 525,80"/>
+        <path d="M610,55 Q616,50 622,55"/><path d="M624,52 Q630,47 636,52"/>
+      </g>
+
+      <!-- Nhà nông thôn góc phải -->
+      <rect x="600" y="145" width="50" height="30" rx="2" fill="#e8c87a"/>
+      <polygon points="594,148 656,148 625,125" fill="#b03a2e"/>
+      <rect x="612" y="158" width="10" height="17" rx="1" fill="#7a5230"/>
+      <rect x="627" y="153" width="13" height="10" rx="1" fill="#87CEEB" opacity="0.8"/>
+      <!-- Cây bên nhà -->
+      <rect x="656" y="140" width="5" height="35" rx="2" fill="#6b4c11"/>
+      <ellipse cx="659" cy="135" rx="16" ry="20" fill="#2d6b1a"/>
+      <ellipse cx="659" cy="128" rx="12" ry="16" fill="#3d8a2a"/>
+
+      <!-- Cây bên trái lớn -->
+      <rect x="18" y="130" width="7" height="90" rx="3" fill="#6b4c11"/>
+      <ellipse cx="22" cy="125" rx="28" ry="35" fill="#2a6018" opacity="0.9"/>
+      <ellipse cx="10" cy="140" rx="22" ry="28" fill="#326e1e" opacity="0.85"/>
+      <ellipse cx="35" cy="138" rx="20" ry="26" fill="#3d8a2a" opacity="0.9"/>
+      <!-- Lá rủ -->
+      <path d="M22,95 Q-10,130 5,155" stroke="#3d8a2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M22,100 Q50,125 38,150" stroke="#3d8a2a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M15,110 Q-5,145 8,165" stroke="#2a6018" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- NỀN CÁNH ĐỒNG -->
+      <!-- Ruộng lúa chín vàng - nền lớn -->
+      <rect x="0" y="175" width="700" height="165" fill="#d4a020"/>
+
+      <!-- Cánh đồng lúa vàng chi tiết -->
+      <rect x="200" y="170" width="500" height="170" fill="#c8950e"/>
+      <rect x="200" y="170" width="500" height="170" fill="#e8b830" opacity="0.7"/>
+
+      <!-- Lúa chín vàng - texture -->
+      <g opacity="0.6">
+        <rect x="200" y="180" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="192" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="204" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="216" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="228" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="240" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="252" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="264" width="500" height="4" fill="#a07008" rx="2"/>
+        <rect x="200" y="276" width="500" height="4" fill="#a07008" rx="2"/>
+      </g>
+
+      <!-- Ruộng xanh gần thu hoạch góc trái dưới -->
+      <polygon points="0,230 130,200 130,340 0,340" fill="#4a8c2a"/>
+      <g opacity="0.5">
+        <rect x="0" y="235" width="130" height="3" fill="#2d6b18" rx="1"/>
+        <rect x="0" y="245" width="130" height="3" fill="#2d6b18" rx="1"/>
+        <rect x="0" y="255" width="130" height="3" fill="#2d6b18" rx="1"/>
+        <rect x="0" y="265" width="130" height="3" fill="#2d6b18" rx="1"/>
+        <rect x="0" y="275" width="130" height="3" fill="#2d6b18" rx="1"/>
+        <rect x="0" y="285" width="130" height="3" fill="#2d6b18" rx="1"/>
+      </g>
+
+      <!-- KÊNH NƯỚC uốn lượn -->
+      <path d="M155,175 Q175,210 160,250 Q148,285 165,340" stroke="#5aabcc" stroke-width="22" fill="none" stroke-linecap="round"/>
+      <path d="M155,175 Q175,210 160,250 Q148,285 165,340" stroke="#7ac8e0" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M155,175 Q175,210 160,250 Q148,285 165,340" stroke="#aaddf0" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- Hoa súng trên kênh -->
+      <circle cx="158" cy="290" r="5" fill="#e74c8b" opacity="0.8"/>
+      <circle cx="163" cy="305" r="4" fill="#ff6aa0" opacity="0.7"/>
+      <circle cx="155" cy="318" r="4" fill="#e74c8b" opacity="0.8"/>
+
+      <!-- ĐƯỜNG MÒN -->
+      <path d="M230,175 Q240,230 235,340" stroke="#c8a050" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.85"/>
+      <path d="M230,175 Q240,230 235,340" stroke="#dab870" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- BÓ LÚA ĐÃ GẶT -->
+      <g fill="#c8950e">
+        <ellipse cx="290" cy="300" rx="18" ry="8" transform="rotate(-20,290,300)"/>
+        <ellipse cx="285" cy="295" rx="18" ry="8" transform="rotate(-20,285,295)"/>
+        <ellipse cx="330" cy="310" rx="18" ry="8" transform="rotate(15,330,310)"/>
+        <ellipse cx="420" cy="295" rx="18" ry="8" transform="rotate(-10,420,295)"/>
+        <ellipse cx="415" cy="289" rx="18" ry="8" transform="rotate(-10,415,289)"/>
+        <ellipse cx="500" cy="305" rx="18" ry="8" transform="rotate(20,500,305)"/>
+      </g>
+      <!-- Ràng bó lúa -->
+      <line x1="290" y1="302" x2="290" y2="292" stroke="#8B6914" stroke-width="2"/>
+      <line x1="420" y1="297" x2="420" y2="287" stroke="#8B6914" stroke-width="2"/>
+
+      <!-- NÔNG DÂN 1 - đang gặt góc giữa -->
+      <g transform="translate(268,240)">
+        <circle cx="0" cy="-28" r="10" fill="#d4855a"/>
+        <polygon points="-14,-28 14,-28 0,-46" fill="#e8d060"/>
+        <ellipse cx="0" cy="-38" rx="16" ry="4" fill="#c8b040"/>
+        <rect x="-7" y="-18" width="14" height="22" rx="4" fill="#e85a3a"/>
+        <line x1="-7" y1="-8" x2="-22" y2="5" stroke="#d4855a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="7" y1="-8" x2="18" y2="2" stroke="#d4855a" stroke-width="4" stroke-linecap="round"/>
+        <!-- Liềm -->
+        <path d="M18,2 Q28,-5 22,8" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="-5" y="4" width="5" height="14" rx="2" fill="#5a3e28"/>
+        <rect x="2" y="4" width="5" height="14" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- NÔNG DÂN 2 - đang gặt bên phải -->
+      <g transform="translate(380,230)">
+        <circle cx="0" cy="-28" r="10" fill="#c8784a"/>
+        <polygon points="-14,-28 14,-28 0,-46" fill="#e8d060"/>
+        <ellipse cx="0" cy="-38" rx="16" ry="4" fill="#c8b040"/>
+        <rect x="-7" y="-18" width="14" height="22" rx="4" fill="#3a7a3a"/>
+        <line x1="-7" y1="-8" x2="-20" y2="6" stroke="#c8784a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="7" y1="-8" x2="20" y2="0" stroke="#c8784a" stroke-width="4" stroke-linecap="round"/>
+        <path d="M20,0 Q30,-7 24,9" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="-5" y="4" width="5" height="14" rx="2" fill="#5a3e28"/>
+        <rect x="2" y="4" width="5" height="14" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- NÔNG DÂN 3 - đứng thẳng gánh lúa -->
+      <g transform="translate(460,215)">
+        <circle cx="0" cy="-30" r="10" fill="#d4855a"/>
+        <polygon points="-14,-30 14,-30 0,-48" fill="#f0e070"/>
+        <ellipse cx="0" cy="-40" rx="16" ry="4" fill="#d0c050"/>
+        <rect x="-6" y="-20" width="12" height="24" rx="4" fill="#4a5ab0"/>
+        <!-- Đòn gánh -->
+        <line x1="-25" y1="-15" x2="25" y2="-15" stroke="#8B6914" stroke-width="3" stroke-linecap="round"/>
+        <!-- Bó lúa gánh -->
+        <ellipse cx="-22" cy="-8" rx="10" ry="6" fill="#d4a020"/>
+        <ellipse cx="22" cy="-8" rx="10" ry="6" fill="#d4a020"/>
+        <rect x="-6" y="4" width="5" height="16" rx="2" fill="#5a3e28"/>
+        <rect x="2" y="4" width="5" height="16" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- NÔNG DÂN 4 - góc xa -->
+      <g transform="translate(550,205)">
+        <circle cx="0" cy="-22" r="8" fill="#c8784a"/>
+        <polygon points="-11,-22 11,-22 0,-36" fill="#e8d060"/>
+        <ellipse cx="0" cy="-30" rx="13" ry="3" fill="#c8b040"/>
+        <rect x="-5" y="-14" width="10" height="18" rx="3" fill="#c03a3a"/>
+        <line x1="-5" y1="-6" x2="-16" y2="4" stroke="#c8784a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="5" y1="-6" x2="14" y2="2" stroke="#c8784a" stroke-width="3" stroke-linecap="round"/>
+        <rect x="-4" y="4" width="4" height="12" rx="2" fill="#5a3e28"/>
+        <rect x="1" y="4" width="4" height="12" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- NÔNG DÂN 5 - đi trên đường -->
+      <g transform="translate(232,200)">
+        <circle cx="0" cy="-24" r="8" fill="#d4855a"/>
+        <polygon points="-11,-24 11,-24 0,-38" fill="#e8d060"/>
+        <ellipse cx="0" cy="-32" rx="13" ry="3" fill="#c8b040"/>
+        <rect x="-5" y="-16" width="10" height="18" rx="3" fill="#e05a2a"/>
+        <line x1="-5" y1="-8" x2="-14" y2="4" stroke="#d4855a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="5" y1="-8" x2="12" y2="2" stroke="#d4855a" stroke-width="3" stroke-linecap="round"/>
+        <rect x="-4" y="2" width="4" height="13" rx="2" fill="#5a3e28"/>
+        <rect x="1" y="2" width="4" height="13" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- TRÂU + NÔNG DÂN cày bên kênh -->
+      <g transform="translate(178,235)">
+        <!-- Thân trâu -->
+        <ellipse cx="0" cy="-18" rx="38" ry="20" fill="#3d2b1a"/>
+        <!-- Đầu -->
+        <ellipse cx="-32" cy="-26" rx="17" ry="13" fill="#3d2b1a"/>
+        <ellipse cx="-44" cy="-22" rx="9" ry="7" fill="#5a3e28"/>
+        <circle cx="-36" cy="-30" r="2.5" fill="white"/>
+        <circle cx="-36" cy="-30" r="1.2" fill="#1a1a1a"/>
+        <path d="M-30,-36 Q-23,-47 -16,-42" stroke="#8B6914" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M-36,-36 Q-42,-50 -33,-47" stroke="#8B6914" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- Chân -->
+        <rect x="-25" y="0" width="8" height="16" rx="3" fill="#2d1f0f"/>
+        <rect x="-8" y="0" width="8" height="16" rx="3" fill="#2d1f0f"/>
+        <rect x="8" y="0" width="8" height="16" rx="3" fill="#2d1f0f"/>
+        <rect x="23" y="0" width="8" height="16" rx="3" fill="#2d1f0f"/>
+        <path d="M36,-15 Q48,-6 43,6" stroke="#3d2b1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <line x1="36" y1="-12" x2="70" y2="-8" stroke="#8B6914" stroke-width="2.5"/>
+      </g>
+
+      <!-- NÔNG DÂN cầm cày sau trâu -->
+      <g transform="translate(255,225)">
+        <circle cx="0" cy="-26" r="9" fill="#c8784a"/>
+        <polygon points="-12,-26 12,-26 0,-40" fill="#e8d060"/>
+        <ellipse cx="0" cy="-34" rx="14" ry="3.5" fill="#c8b040"/>
+        <rect x="-6" y="-17" width="12" height="20" rx="4" fill="#4a7a4a"/>
+        <line x1="-6" y1="-7" x2="-18" y2="6" stroke="#c8784a" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="6" y1="-7" x2="4" y2="6" stroke="#c8784a" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="-5" y="3" width="4" height="13" rx="2" fill="#5a3e28"/>
+        <rect x="2" y="3" width="4" height="13" rx="2" fill="#5a3e28"/>
+      </g>
+
+      <!-- MÁY KÉO góc dưới trái -->
+      <g transform="translate(60,295)">
+        <rect x="-25" y="-22" width="50" height="28" rx="4" fill="#c03a1a"/>
+        <rect x="-15" y="-30" width="25" height="12" rx="3" fill="#a03018"/>
+        <circle cx="-18" cy="10" r="12" fill="#2d2d2d"/>
+        <circle cx="-18" cy="10" r="7" fill="#4a4a4a"/>
+        <circle cx="18" cy="10" r="10" fill="#2d2d2d"/>
+        <circle cx="18" cy="10" r="6" fill="#4a4a4a"/>
+        <rect x="-5" y="-22" width="8" height="10" rx="2" fill="#888" opacity="0.7"/>
+        <!-- Ống khói -->
+        <rect x="8" y="-35" width="5" height="14" rx="2" fill="#555"/>
+        <circle cx="10" cy="-37" r="4" fill="#333" opacity="0.5"/>
+      </g>
+      <!-- Nông dân lái máy -->
+      <g transform="translate(78,272)">
+        <circle cx="0" cy="-14" r="7" fill="#c8784a"/>
+        <polygon points="-9,-14 9,-14 0,-24" fill="#e8d060"/>
+        <rect x="-4" y="-7" width="8" height="14" rx="3" fill="#3a5ab0"/>
+      </g>
+
+      <!-- Cò trắng trên ruộng -->
+      <g fill="white" stroke="#aaa" stroke-width="0.5">
+        <ellipse cx="310" cy="218" rx="6" ry="3" transform="rotate(-15,310,218)"/>
+        <line x1="310" y1="221" x2="308" y2="230" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="308" y1="230" x2="304" y2="234" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="308" y1="230" x2="312" y2="234" stroke="#aaa" stroke-width="1.5"/>
+        <path d="M306,218 Q300,213 305,210" stroke="#aaa" stroke-width="1.5" fill="none"/>
+      </g>
+      <g fill="white" stroke="#aaa" stroke-width="0.5">
+        <ellipse cx="590" cy="195" rx="5" ry="2.5" transform="rotate(-10,590,195)"/>
+        <line x1="590" y1="197" x2="588" y2="205" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="588" y1="205" x2="585" y2="209" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="588" y1="205" x2="592" y2="209" stroke="#aaa" stroke-width="1.5"/>
+      </g>
+
+      <!-- Đường chân trời mờ -->
+      <rect x="0" y="170" width="700" height="8" fill="#b8860e" opacity="0.3"/>
+
+      <!-- Chữ trang trí dưới -->
+      <rect x="0" y="318" width="700" height="22" fill="#1a3a1a" opacity="0.7"/>
+      <text x="350" y="333" font-family="Georgia,serif" font-size="12" fill="#f5e6c8" text-anchor="middle" opacity="0.95">🌾 Lúa Gạo Lộc Vàng — Bạc Liêu · Đồng bằng sông Cửu Long 🌾</text>
+    </svg>
+  </div>
+      <!-- Bầu trời -->
+      <rect x="0" y="0" width="700" height="320" fill="#87CEEB"/>
+      <!-- Mây 1 -->
+      <ellipse cx="120" cy="50" rx="50" ry="22" fill="white" opacity="0.9"/>
+      <ellipse cx="90" cy="58" rx="30" ry="18" fill="white" opacity="0.9"/>
+      <ellipse cx="155" cy="58" rx="32" ry="17" fill="white" opacity="0.9"/>
+      <!-- Mây 2 -->
+      <ellipse cx="500" cy="40" rx="55" ry="20" fill="white" opacity="0.85"/>
+      <ellipse cx="465" cy="48" rx="32" ry="16" fill="white" opacity="0.85"/>
+      <ellipse cx="540" cy="48" rx="35" ry="16" fill="white" opacity="0.85"/>
+      <!-- Mây 3 -->
+      <ellipse cx="330" cy="65" rx="40" ry="16" fill="white" opacity="0.7"/>
+      <ellipse cx="305" cy="72" rx="25" ry="13" fill="white" opacity="0.7"/>
+      <ellipse cx="358" cy="72" rx="27" ry="13" fill="white" opacity="0.7"/>
+      <!-- Mặt trời -->
+      <circle cx="620" cy="60" r="38" fill="#FFD700" opacity="0.9"/>
+      <circle cx="620" cy="60" r="30" fill="#FFE033"/>
+      <!-- Tia nắng -->
+      <g stroke="#FFD700" stroke-width="3" opacity="0.6">
+        <line x1="620" y1="15" x2="620" y2="5"/>
+        <line x1="655" y1="25" x2="662" y2="17"/>
+        <line x1="667" y1="60" x2="678" y2="60"/>
+        <line x1="655" y1="95" x2="662" y2="103"/>
+        <line x1="585" y1="25" x2="578" y2="17"/>
+        <line x1="573" y1="60" x2="562" y2="60"/>
+      </g>
+
+      <!-- Núi xa -->
+      <ellipse cx="80" cy="175" rx="90" ry="55" fill="#5a8c5a" opacity="0.5"/>
+      <ellipse cx="620" cy="165" rx="100" ry="60" fill="#5a8c5a" opacity="0.4"/>
+
+      <!-- Đất ruộng nền -->
+      <rect x="0" y="200" width="700" height="120" fill="#8B6914"/>
+      <!-- Ruộng lúa xanh -->
+      <rect x="0" y="195" width="700" height="30" fill="#4a7c3a"/>
+      <!-- Luống ruộng -->
+      <rect x="0" y="210" width="700" height="8" fill="#3d6b2e" opacity="0.5"/>
+      <rect x="0" y="230" width="700" height="8" fill="#3d6b2e" opacity="0.5"/>
+      <rect x="0" y="250" width="700" height="8" fill="#3d6b2e" opacity="0.4"/>
+      <rect x="0" y="270" width="700" height="8" fill="#5a3e10" opacity="0.4"/>
+
+      <!-- Nước ruộng phản chiếu -->
+      <rect x="0" y="195" width="700" height="80" fill="#5B9E4A" opacity="0.6"/>
+
+      <!-- LÚA - hàng 1 -->
+      <g fill="#3d8c2a">
+        <g transform="translate(30,185)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(60,183)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(90,186)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(150,184)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(180,185)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(460,184)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(490,183)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(520,185)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(560,184)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(600,183)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(640,185)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+        <g transform="translate(670,184)"><ellipse cx="0" cy="0" rx="4" ry="18"/><line x1="0" y1="-18" x2="-8" y2="-30" stroke="#5aaa3a" stroke-width="2"/><line x1="0" y1="-14" x2="8" y2="-26" stroke="#5aaa3a" stroke-width="2"/></g>
+      </g>
+
+      <!-- TRÂU -->
+      <g transform="translate(230,210)">
+        <!-- Thân trâu -->
+        <ellipse cx="0" cy="-20" rx="45" ry="25" fill="#3d2b1a"/>
+        <!-- Đầu -->
+        <ellipse cx="-38" cy="-30" rx="20" ry="16" fill="#3d2b1a"/>
+        <!-- Mõm -->
+        <ellipse cx="-52" cy="-25" rx="10" ry="8" fill="#5a3e28"/>
+        <!-- Mắt -->
+        <circle cx="-42" cy="-35" r="3" fill="white"/>
+        <circle cx="-42" cy="-35" r="1.5" fill="#1a1a1a"/>
+        <!-- Sừng -->
+        <path d="M-35,-42 Q-28,-55 -20,-50" stroke="#8B6914" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M-42,-42 Q-48,-58 -38,-55" stroke="#8B6914" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Chân -->
+        <rect x="-30" y="2" width="10" height="20" rx="4" fill="#2d1f0f"/>
+        <rect x="-10" y="2" width="10" height="20" rx="4" fill="#2d1f0f"/>
+        <rect x="10" y="2" width="10" height="20" rx="4" fill="#2d1f0f"/>
+        <rect x="28" y="2" width="10" height="20" rx="4" fill="#2d1f0f"/>
+        <!-- Đuôi -->
+        <path d="M42,-20 Q55,-10 50,5" stroke="#3d2b1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <!-- Dây cày -->
+        <line x1="42" y1="-15" x2="90" y2="-10" stroke="#8B6914" stroke-width="3"/>
+      </g>
+
+      <!-- CÀY -->
+      <g transform="translate(320,215)">
+        <path d="M0,-10 L30,10 L25,25 L-5,10 Z" fill="#6b4c11"/>
+        <rect x="28" y="-15" width="5" height="40" rx="2" fill="#8B6914"/>
+      </g>
+
+      <!-- NÔNG DÂN cầm cày -->
+      <g transform="translate(355,185)">
+        <!-- Thân -->
+        <rect x="-10" y="-10" width="20" height="35" rx="6" fill="#e8935a"/>
+        <!-- Áo -->
+        <rect x="-10" y="-5" width="20" height="25" rx="4" fill="#3d7a3d"/>
+        <!-- Đầu -->
+        <circle cx="0" cy="-22" r="16" fill="#c8784a"/>
+        <!-- Nón lá -->
+        <ellipse cx="0" cy="-32" rx="22" ry="6" fill="#d4aa44"/>
+        <path d="M-22,-32 Q0,-48 22,-32" fill="#c49a30"/>
+        <!-- Tay cầm cày -->
+        <line x1="-10" y1="5" x2="-30" y2="20" stroke="#c8784a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="10" y1="5" x2="-5" y2="20" stroke="#c8784a" stroke-width="5" stroke-linecap="round"/>
+        <!-- Chân -->
+        <rect x="-8" y="22" width="7" height="18" rx="3" fill="#5a3e28"/>
+        <rect x="2" y="22" width="7" height="18" rx="3" fill="#5a3e28"/>
+      </g>
+
+      <!-- CHIM bay -->
+      <g fill="none" stroke="#1a3a5a" stroke-width="2" stroke-linecap="round">
+        <path d="M200,80 Q210,72 220,80"/>
+        <path d="M215,75 Q225,67 235,75"/>
+        <path d="M400,55 Q412,46 424,55"/>
+        <path d="M418,50 Q430,41 442,50"/>
+      </g>
+
+      <!-- Cây dừa góc trái -->
+      <rect x="15" y="120" width="8" height="80" rx="4" fill="#8B6914"/>
+      <ellipse cx="19" cy="118" rx="28" ry="12" fill="#2d6b1a" transform="rotate(-20,19,118)"/>
+      <ellipse cx="19" cy="118" rx="28" ry="12" fill="#2d6b1a" transform="rotate(20,19,118)"/>
+      <ellipse cx="19" cy="118" rx="28" ry="12" fill="#3d8a2a" transform="rotate(0,19,118)"/>
+
+      <!-- Cây góc phải -->
+      <rect x="665" y="115" width="8" height="85" rx="4" fill="#8B6914"/>
+      <ellipse cx="669" cy="113" rx="28" ry="12" fill="#2d6b1a" transform="rotate(20,669,113)"/>
+      <ellipse cx="669" cy="113" rx="28" ry="12" fill="#2d6b1a" transform="rotate(-20,669,113)"/>
+      <ellipse cx="669" cy="113" rx="28" ry="12" fill="#3d8a2a" transform="rotate(0,669,113)"/>
+
+      <!-- Nhà nông thôn xa -->
+      <rect x="580" y="155" width="55" height="35" rx="2" fill="#d4a855"/>
+      <polygon points="575,158 635,158 605,135" fill="#c0392b"/>
+      <rect x="595" y="170" width="12" height="20" rx="1" fill="#8B6914"/>
+      <rect x="610" y="165" width="14" height="12" rx="1" fill="#87CEEB" opacity="0.7"/>
+
+      <!-- Đường bờ ruộng -->
+      <rect x="220" y="195" width="120" height="6" fill="#6b4c11" rx="2"/>
+
+      <!-- Chữ trang trí -->
+      <text x="350" y="305" font-family="serif" font-size="13" fill="#f5e6c8" text-anchor="middle" opacity="0.85">🌾 Lúa Gạo Lộc Vàng — Bạc Liêu 🌾</text>
+    </svg>
   </div>
 </section>
 
@@ -210,8 +653,43 @@ footer strong{color:var(--gold-light)}
   <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Kho hàng</div></div>
 </div>
 
-<div class="products-wrap">
+<div class="nav">
+  <button class="nav-item active" onclick="showTab('trangchu')">Trang chủ</button>
+  <button class="nav-item" onclick="showTab('gioithieu')">Giới thiệu</button>
+  <button class="nav-item" onclick="showTab('sanpham')">Sản phẩm</button>
+  <button class="nav-item" onclick="showTab('banggia')">Bảng giá</button>
+  <button class="nav-item" onclick="showTab('lienhe')">Liên hệ</button>
+</div>
+
+<!-- GIỚI THIỆU -->
+<div class="gioithieu-wrap" id="tab-gioithieu">
   <div class="inner">
+    <div class="section-eyebrow">Câu chuyện của chúng tôi</div>
+    <h2 class="section-title">Hơn 30 năm<br>gắn bó với hạt gạo</h2>
+    <p class="section-sub">Từ nhà máy xay xát nhỏ của gia đình đến cơ sở kinh doanh lúa gạo uy tín tại Bạc Liêu — hành trình hơn 30 năm gắn bó với người nông dân và hạt gạo ĐBSCL.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1992</div>
+        <div class="tl-title">Nhà máy xay xát ra đời</div>
+        <div class="tl-desc">Tiền thân là nhà máy xay xát lúa gạo của gia đình, được thành lập tại Bạc Liêu. Những mẻ gạo đầu tiên được xay từ lúa của bà con nông dân địa phương.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Nội dung tiếp theo</div>
+        <div class="tl-title">Mở rộng hoạt động</div>
+        <div class="tl-desc">— Bạn điền nội dung vào đây —</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Hiện tại</div>
+        <div class="tl-title">Lúa Gạo Lộc Vàng</div>
+        <div class="tl-desc">Tiếp nối truyền thống gia đình, Lúa Gạo Lộc Vàng cung cấp gạo và phụ phẩm lúa gạo chất lượng cho khách hàng khắp vùng Bạc Liêu và ĐBSCL.</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="inner" id="tab-sanpham">
     <div class="section-eyebrow">Danh mục</div>
     <h2 class="section-title">Sản phẩm cung cấp</h2>
     <p class="section-sub">Gạo và phụ phẩm lúa gạo chất lượng, thu mua trực tiếp từ nông dân địa phương.</p>
@@ -248,14 +726,6 @@ footer strong{color:var(--gold-light)}
           <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card" onclick="openModal('trau')" style="cursor:pointer">
-        <div class="product-img" style="background:#f8f4ee">🌿</div>
-        <div class="product-body">
-          <div class="product-name">Trấu & Rơm</div>
-          <div class="product-desc">Làm chất đốt, trồng nấm, thức ăn gia súc</div>
-          <span class="product-tag">Bấm để xem chi tiết</span>
-        </div>
-      </div>
       <div class="product-card" onclick="openModal('lua')" style="cursor:pointer">
         <div class="product-img" style="background:#f3faf0">🌱</div>
         <div class="product-body">
@@ -272,13 +742,32 @@ footer strong{color:var(--gold-light)}
           <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
+      <div class="product-card" onclick="openModal('trau')" style="cursor:pointer">
+        <div class="product-img" style="background:#f8f4ee">🌿</div>
+        <div class="product-body">
+          <div class="product-name">Trấu & Rơm</div>
+          <div class="product-desc">Làm chất đốt, trồng nấm, thức ăn gia súc</div>
+          <span class="product-tag">Bấm để xem chi tiết</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-<div class="contact-wrap" id="lien-he">
+<!-- BẢNG GIÁ TAB -->
+<div id="tab-banggia" style="display:none;background:var(--green-light);padding:5rem 1.5rem">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="section-eyebrow">Cập nhật hàng tuần</div>
+    <h2 class="section-title">Bảng giá tham khảo</h2>
+    <p class="section-sub">Giá có thể thay đổi theo thị trường. Liên hệ để được báo giá chính xác nhất.</p>
+    <div id="banggia-table-content" style="margin-top:2rem"></div>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:1rem;text-align:center">📞 Giá cập nhật mỗi tuần — liên hệ trực tiếp để nhận báo giá mới nhất</p>
+  </div>
+</div>
+
+<div class="contact-wrap" id="tab-lienhe">
   <div class="contact-grid">
     <div>
       <div class="section-eyebrow">Liên hệ</div>
@@ -306,6 +795,14 @@ footer strong{color:var(--gold-light)}
             <div class="contact-val">Thứ 2 – Thứ 7 · 7:00 – 18:00</div>
           </div>
         </div>
+      </div>
+      <div class="fanpage-box">
+        <div class="fanpage-icon">f</div>
+        <div>
+          <div class="fanpage-label">Fanpage Facebook</div>
+          <div class="fanpage-name">Lúa Gạo Lộc Vàng</div>
+        </div>
+        <a href="#" class="fanpage-btn" id="fanpage-link">Theo dõi</a>
       </div>
     </div>
     <div class="map-box">
@@ -500,6 +997,52 @@ function closeModal(e){
 function closeModalDirect(){
   document.getElementById('modal').classList.remove('active');
   document.body.style.overflow='';
+}
+
+function renderBangGia(){
+  const p = products['banggia'];
+  let html = '';
+  p.table.forEach(group=>{
+    html += `<div style="margin-bottom:1.25rem;background:#fff;border-radius:12px;overflow:hidden">
+      <div style="padding:10px 16px;background:var(--green-dark)">
+        <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light)">${group.group}</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse">`;
+    group.items.forEach((item,i)=>{
+      const bg = i%2===0?'#fff':'#fafaf7';
+      html += `<tr style="background:${bg}">
+        <td style="padding:10px 16px;font-size:0.88rem;color:#1a3a1a;font-weight:500">${item.name}</td>
+        <td style="padding:10px 16px;font-size:0.82rem;color:#888;text-align:center;width:60px">${item.dvt}</td>
+        <td style="padding:10px 16px;font-size:0.88rem;color:var(--gold);font-weight:600;text-align:right;width:100px">${item.gia}</td>
+      </tr>`;
+    });
+    html += `</table></div>`;
+  });
+  document.getElementById('banggia-table-content').innerHTML = html;
+}
+
+function showTab(tab){
+  const allTabs = ['gioithieu','sanpham','banggia','lienhe'];
+  const labels = {trangchu:'Trang chủ',gioithieu:'Giới thiệu',sanpham:'Sản phẩm',banggia:'Bảng giá',lienhe:'Liên hệ'};
+
+  if(tab==='trangchu'){
+    allTabs.forEach(t=>{
+      const el=document.getElementById('tab-'+t);
+      if(el) el.style.display='block';
+    });
+  } else {
+    allTabs.forEach(t=>{
+      const el=document.getElementById('tab-'+t);
+      if(el) el.style.display=(t===tab)?'block':'none';
+    });
+    if(tab==='banggia') renderBangGia();
+  }
+
+  document.querySelectorAll('.nav-item').forEach(btn=>{
+    btn.classList.toggle('active', btn.textContent.trim()===labels[tab]);
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
