@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gạo Lộc Vàng</title>
+<title>Lúa Gạo Lộc Vàng</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -195,7 +195,7 @@ footer strong{color:var(--gold-light)}
 
 <section class="hero">
   <div class="hero-badge">Bạc Liêu · Đồng bằng sông Cửu Long</div>
-  <h1>Gạo<br><span>Lộc Vàng</span></h1>
+  <h1>Lúa Gạo<br><span>Lộc Vàng</span></h1>
   <p class="hero-sub">Cung cấp các loại gạo đặc sản, gạo thông thường và phụ phẩm lúa gạo — thẳng từ vùng lúa Bạc Liêu.</p>
   <div class="update-badge"><span class="dot"></span>Giá cập nhật hàng tuần</div>
   <div class="hero-cta">
@@ -276,32 +276,7 @@ footer strong{color:var(--gold-light)}
   </div>
 </div>
 
-<div class="price-section" id="bang-gia">
-  <div class="price-inner">
-    <div class="section-eyebrow">Cập nhật hàng tuần</div>
-    <h2 class="section-title">Bảng giá tham khảo</h2>
-    <p class="section-sub">Giá có thể thay đổi theo thị trường. Liên hệ để được báo giá chính xác nhất.</p>
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Sản phẩm</th>
-          <th>Đơn vị</th>
-          <th>Giá tham khảo</th>
-          <th>Ghi chú</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Gạo ST25</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Đặc sản cao cấp</td></tr>
-        <tr><td>Gạo Jasmine</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Gạo thơm nhập khẩu</td></tr>
-        <tr><td>Gạo OM5451</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Phổ thông, giá tốt</td></tr>
-        <tr><td>Cám gạo tươi</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Dùng cho chăn nuôi</td></tr>
-        <tr><td>Tấm gạo</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Tấm nguyên / mịn</td></tr>
-        <tr><td>Trấu</td><td>bao/kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Theo số lượng</td></tr>
-      </tbody>
-    </table>
-    <p class="price-note">📞 Giá cập nhật mỗi tuần — liên hệ trực tiếp để nhận báo giá mới nhất</p>
-  </div>
-</div>
+
 
 <div class="contact-wrap" id="lien-he">
   <div class="contact-grid">
@@ -342,7 +317,7 @@ footer strong{color:var(--gold-light)}
 </div>
 
 <footer>
-  <strong>Gạo Lộc Vàng</strong> · Bạc Liêu<br>
+  <strong>Lúa Gạo Lộc Vàng</strong> · Bạc Liêu<br>
   <span style="font-size:0.78rem;margin-top:6px;display:block">Cung cấp gạo và phụ phẩm lúa gạo chất lượng từ vùng ĐBSCL</span>
 </footer>
 
@@ -365,15 +340,46 @@ const products = {
   banggia: {
     emoji: '💰',
     title: 'Bảng giá tham khảo',
-    items: [
-      {name:'Gạo ST25', desc:'Đặc sản cao cấp · Liên hệ để biết giá'},
-      {name:'Gạo Jasmine', desc:'Gạo thơm nhập khẩu · Liên hệ để biết giá'},
-      {name:'Gạo OM5451', desc:'Phổ thông, giá tốt · Liên hệ để biết giá'},
-      {name:'Gạo lứt thực dưỡng', desc:'Lứt đỏ, lứt đen, huyết rồng · Liên hệ để biết giá'},
-      {name:'Cám gạo tươi', desc:'Dùng cho chăn nuôi · Liên hệ để biết giá'},
-      {name:'Tấm gạo', desc:'Tấm nguyên / tấm mịn · Liên hệ để biết giá'},
-      {name:'Trấu & Rơm', desc:'Theo số lượng · Liên hệ để biết giá'},
-      {name:'📞 Lưu ý', desc:'Giá cập nhật hàng tuần theo thị trường — liên hệ trực tiếp để nhận báo giá mới nhất'},
+    table: [
+      {group:'Gạo dẻo thơm', items:[
+        {name:'Gạo ST25',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo ST24 Sóc Trăng',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo ST21 Long Lài',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo Nàng Hoa',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo Thơm Lài',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo Thơm Thái',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo Huyết Rồng',dvt:'kg',gia:'Liên hệ'},
+      ]},
+      {group:'Gạo thông thường', items:[
+        {name:'Gạo OM5451',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo IR504',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo OM18',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo Đài Thơm 8',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo trắng nở xốp',dvt:'kg',gia:'Liên hệ'},
+      ]},
+      {group:'Gạo thực dưỡng', items:[
+        {name:'Gạo lứt đỏ',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo lứt đen (gạo cẩm)',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo lứt huyết rồng',dvt:'kg',gia:'Liên hệ'},
+      ]},
+      {group:'Gạo nếp', items:[
+        {name:'Gạo nếp ngỗng',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo nếp bắc',dvt:'kg',gia:'Liên hệ'},
+      ]},
+      {group:'Phụ phẩm chăn nuôi', items:[
+        {name:'Cám mịn',dvt:'kg',gia:'Liên hệ'},
+        {name:'Cám to',dvt:'kg',gia:'Liên hệ'},
+        {name:'Cám trộn',dvt:'kg',gia:'Liên hệ'},
+        {name:'Gạo phế',dvt:'kg',gia:'Liên hệ'},
+        {name:'Tấm phế',dvt:'kg',gia:'Liên hệ'},
+        {name:'Lứt phế',dvt:'kg',gia:'Liên hệ'},
+      ]},
+      {group:'Tấm & Trấu & Rơm', items:[
+        {name:'Tấm nguyên',dvt:'kg',gia:'Liên hệ'},
+        {name:'Tấm mịn',dvt:'kg',gia:'Liên hệ'},
+        {name:'Trấu',dvt:'kg/bao',gia:'Liên hệ'},
+        {name:'Rơm',dvt:'kg/bao',gia:'Liên hệ'},
+      ]},
     ]
   },
   thom: {
@@ -453,15 +459,36 @@ function openModal(key){
   const p = products[key];
   document.getElementById('modal-emoji').textContent = p.emoji;
   document.getElementById('modal-title').textContent = p.title;
-  document.getElementById('modal-body').innerHTML = p.items.map(i=>`
-    <div class="modal-item">
-      <div class="item-dot"></div>
-      <div>
-        <div class="item-name">${i.name}</div>
-        <div class="item-desc">${i.desc}</div>
+
+  if(p.table){
+    let html = `<p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1rem">Giá cập nhật hàng tuần · Liên hệ để nhận báo giá chính xác nhất</p>`;
+    p.table.forEach(group=>{
+      html += `<div style="margin-bottom:1.25rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">${group.group}</div>
+        <table style="width:100%;border-collapse:collapse">`;
+      group.items.forEach((item,i)=>{
+        const bg = i%2===0?'#fff':'#fafaf7';
+        html += `<tr style="background:${bg}">
+          <td style="padding:8px 10px;font-size:0.85rem;color:#1a3a1a;font-weight:500">${item.name}</td>
+          <td style="padding:8px 10px;font-size:0.8rem;color:#888;text-align:center;width:60px">${item.dvt}</td>
+          <td style="padding:8px 10px;font-size:0.85rem;color:var(--gold);font-weight:600;text-align:right;width:90px">${item.gia}</td>
+        </tr>`;
+      });
+      html += `</table></div>`;
+    });
+    document.getElementById('modal-body').innerHTML = html;
+  } else {
+    document.getElementById('modal-body').innerHTML = p.items.map(i=>`
+      <div class="modal-item">
+        <div class="item-dot"></div>
+        <div>
+          <div class="item-name">${i.name}</div>
+          <div class="item-desc">${i.desc}</div>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+  }
+
   document.getElementById('modal').classList.add('active');
   document.body.style.overflow='hidden';
 }
