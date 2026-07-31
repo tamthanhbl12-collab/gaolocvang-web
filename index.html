@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lúa Gạo Lộc Vàng</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C8860A;
+  --gold-light:#F5C842;
+  --green-dark:#1a3a1a;
+  --green-mid:#2d5a27;
+  --green-light:#e8f5e3;
+  --cream:#fffdf4;
+  --brown:#6b4c11;
+  --text:#1a1a1a;
+  --text-muted:#5a5a5a;
+  --radius:12px;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,var(--green-dark) 0%,var(--green-mid) 60%,#4a7c3f 100%);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:3rem 1.5rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='30' rx='3' ry='8' fill='%23ffffff08' transform='rotate(25 30 30)'/%3E%3C/svg%3E") repeat;
+  opacity:0.6;
+}
+.hero-badge{
+  background:var(--gold-light);color:var(--brown);
+  font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:1.5rem;
+  position:relative;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,6vw,4rem);
+  color:#fff;text-align:center;line-height:1.15;
+  position:relative;margin-bottom:1rem;
+}
+.hero h1 span{color:var(--gold-light)}
+.hero-sub{
+  color:rgba(255,255,255,0.78);font-size:1.05rem;
+  text-align:center;max-width:480px;line-height:1.7;
+  position:relative;margin-bottom:2rem;
+}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative}
+.btn-primary{
+  background:var(--gold);color:#fff;
+  padding:14px 28px;border-radius:8px;
+  font-weight:600;font-size:0.95rem;text-decoration:none;
+  border:none;cursor:pointer;transition:background 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:#a86f08}
+.btn-outline{
+  background:transparent;color:#fff;
+  padding:14px 28px;border-radius:8px;
+  font-weight:500;font-size:0.95rem;text-decoration:none;
+  border:1.5px solid rgba(255,255,255,0.45);cursor:pointer;
+  transition:border-color 0.2s;display:inline-block;
+}
+.btn-outline:hover{border-color:#fff}
+.update-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);
+  font-size:0.78rem;padding:5px 12px;border-radius:20px;
+  position:relative;margin-bottom:2rem;
+}
+.dot{width:7px;height:7px;background:#6ee27a;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* STATS */
+.stats{
+  background:var(--green-dark);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  text-align:center;
+}
+.stat{padding:2rem 1rem;border-right:1px solid rgba(255,255,255,0.1)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);font-weight:700}
+.stat-lbl{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:4px}
+
+/* PRODUCTS */
+.products-wrap{background:#fff;padding:5rem 1.5rem}
+.inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--green-dark);line-height:1.2;margin-bottom:1rem}
+.section-sub{color:var(--text-muted);font-size:1rem;line-height:1.7;max-width:520px}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:3rem}
+.product-card{
+  background:#fff;border-radius:var(--radius);
+  border:1px solid #e8e2d0;overflow:hidden;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+.product-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.product-body{padding:1rem}
+.product-name{font-weight:600;font-size:0.95rem;color:var(--green-dark);margin-bottom:4px}
+.product-desc{font-size:0.8rem;color:var(--text-muted);line-height:1.5}
+.product-tag{
+  display:inline-block;margin-top:8px;
+  background:var(--green-light);color:var(--green-mid);
+  font-size:0.7rem;font-weight:600;padding:3px 10px;border-radius:20px;
+}
+
+/* PRICE */
+.price-section{background:var(--green-light);padding:5rem 1.5rem}
+.price-inner{max-width:900px;margin:0 auto}
+.price-table{width:100%;border-collapse:collapse;margin-top:2rem;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.price-table thead{background:var(--green-dark);color:#fff}
+.price-table th{padding:14px 20px;text-align:left;font-size:0.85rem;font-weight:500}
+.price-table td{padding:14px 20px;font-size:0.9rem;border-bottom:1px solid #f0ebe0}
+.price-table tr:last-child td{border-bottom:none}
+.price-table tr:hover td{background:#fffdf0}
+.price-tag{font-weight:600;color:var(--gold)}
+.price-note{font-size:0.78rem;color:var(--text-muted);margin-top:1rem;text-align:center}
+
+/* CONTACT */
+.contact-wrap{padding:5rem 1.5rem}
+.contact-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.contact-info{display:flex;flex-direction:column;gap:16px;margin-top:2rem}
+.contact-row{display:flex;gap:12px;align-items:flex-start}
+.contact-icon{width:40px;height:40px;border-radius:8px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-label{font-size:0.75rem;color:var(--text-muted);margin-bottom:2px}
+.contact-val{font-size:0.9rem;font-weight:500;color:var(--green-dark)}
+.map-box{
+  background:var(--green-light);border-radius:var(--radius);
+  height:260px;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;color:var(--text-muted);font-size:0.9rem;
+  border:1px dashed #c5d9be;
+}
+
+/* FOOTER */
+footer{background:var(--green-dark);color:rgba(255,255,255,0.65);text-align:center;padding:2rem 1.5rem;font-size:0.85rem}
+footer strong{color:var(--gold-light)}
+
+@media(max-width:640px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .stat:last-child{border-bottom:none}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-badge">Bạc Liêu · Đồng bằng sông Cửu Long</div>
+  <h1>Lúa Gạo<br><span>Lộc Vàng</span></h1>
+  <p class="hero-sub">Cung cấp các loại gạo đặc sản, gạo thông thường và phụ phẩm lúa gạo — thẳng từ vùng lúa Bạc Liêu.</p>
+  <div class="update-badge"><span class="dot"></span>Giá cập nhật hàng tuần</div>
+  <div class="hero-cta">
+    <a href="#bang-gia" class="btn-primary">Xem bảng giá</a>
+    <a href="#lien-he" class="btn-outline">Liên hệ mua hàng</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Năm kinh nghiệm</div></div>
+  <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Loại sản phẩm</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Kho hàng</div></div>
+</div>
+
+<div class="products-wrap">
+  <div class="inner">
+    <div class="section-eyebrow">Danh mục</div>
+    <h2 class="section-title">Sản phẩm cung cấp</h2>
+    <p class="section-sub">Gạo và phụ phẩm lúa gạo chất lượng, thu mua trực tiếp từ nông dân địa phương.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img" style="background:#fffbea">🌾</div>
+        <div class="product-body">
+          <div class="product-name">Gạo thơm đặc sản</div>
+          <div class="product-desc">ST24, ST25, Jasmine — hạt dài, thơm tự nhiên</div>
+          <span class="product-tag">Bán sỉ & lẻ</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#f5f5f0">🍚</div>
+        <div class="product-body">
+          <div class="product-name">Gạo thông thường</div>
+          <div class="product-desc">OM5451, IR504, gạo trắng hạt dài các loại</div>
+          <span class="product-tag">Số lượng lớn</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fdf6ec">🟡</div>
+        <div class="product-body">
+          <div class="product-name">Cám gạo</div>
+          <div class="product-desc">Cám tươi, cám ép — dùng cho chăn nuôi</div>
+          <span class="product-tag">Phụ phẩm</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fdfaf3">⚪</div>
+        <div class="product-body">
+          <div class="product-name">Tấm gạo</div>
+          <div class="product-desc">Tấm nguyên và tấm mịn, dùng làm bún phở</div>
+          <span class="product-tag">Phụ phẩm</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#f8f4ee">🌿</div>
+        <div class="product-body">
+          <div class="product-name">Trấu</div>
+          <div class="product-desc">Làm chất đốt, trồng nấm, lọc nước</div>
+          <span class="product-tag">Phụ phẩm</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#f3faf0">🌱</div>
+        <div class="product-body">
+          <div class="product-name">Lúa giống</div>
+          <div class="product-desc">Lúa nguyên liệu theo mùa vụ</div>
+          <span class="product-tag">Theo mùa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="price-section" id="bang-gia">
+  <div class="price-inner">
+    <div class="section-eyebrow">Cập nhật hàng tuần</div>
+    <h2 class="section-title">Bảng giá tham khảo</h2>
+    <p class="section-sub">Giá có thể thay đổi theo thị trường. Liên hệ để được báo giá chính xác nhất.</p>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Sản phẩm</th>
+          <th>Đơn vị</th>
+          <th>Giá tham khảo</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Gạo ST25</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Đặc sản cao cấp</td></tr>
+        <tr><td>Gạo Jasmine</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Gạo thơm nhập khẩu</td></tr>
+        <tr><td>Gạo OM5451</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Phổ thông, giá tốt</td></tr>
+        <tr><td>Cám gạo tươi</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Dùng cho chăn nuôi</td></tr>
+        <tr><td>Tấm gạo</td><td>kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Tấm nguyên / mịn</td></tr>
+        <tr><td>Trấu</td><td>bao/kg</td><td class="price-tag">Liên hệ</td><td style="color:var(--text-muted);font-size:0.82rem">Theo số lượng</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">📞 Giá cập nhật mỗi tuần — liên hệ trực tiếp để nhận báo giá mới nhất</p>
+  </div>
+</div>
+
+<div class="contact-wrap" id="lien-he">
+  <div class="contact-grid">
+    <div>
+      <div class="section-eyebrow">Liên hệ</div>
+      <h2 class="section-title">Đặt hàng<br>nhanh chóng</h2>
+      <p class="section-sub">Giao hàng tận nơi khu vực Bạc Liêu và các tỉnh lân cận. Hỗ trợ mua sỉ số lượng lớn.</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Điện thoại / Zalo</div>
+            <div class="contact-val">Liên hệ trực tiếp</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Địa chỉ</div>
+            <div class="contact-val">Bạc Liêu, Đồng bằng sông Cửu Long</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Giờ làm việc</div>
+            <div class="contact-val">Thứ 2 – Thứ 7 · 7:00 – 18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-box">
+      <span style="font-size:2rem">🗺️</span>
+      <span>Bản đồ địa điểm</span>
+      <span style="font-size:0.75rem">Thêm Google Maps vào đây</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Lúa Gạo Lộc Vàng</strong> · Bạc Liêu<br>
+  <span style="font-size:0.78rem;margin-top:6px;display:block">Cung cấp gạo và phụ phẩm lúa gạo chất lượng từ vùng ĐBSCL</span>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
