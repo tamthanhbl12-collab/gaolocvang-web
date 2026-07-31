@@ -138,6 +138,47 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
   border:1px dashed #c5d9be;
 }
 
+/* MODAL */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.55);z-index:1000;
+  align-items:center;justify-content:center;padding:1rem;
+}
+.modal-overlay.active{display:flex}
+.modal-box{
+  background:#fff;border-radius:16px;
+  max-width:520px;width:100%;max-height:85vh;
+  overflow-y:auto;padding:0;
+  animation:modalIn 0.2s ease;
+}
+@keyframes modalIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-header{
+  padding:1.5rem 1.5rem 1rem;
+  border-bottom:1px solid #f0ebe0;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;background:#fff;z-index:1;
+}
+.modal-header h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark)}
+.modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:1.5rem;color:var(--text-muted);line-height:1;
+  padding:4px 8px;border-radius:6px;
+}
+.modal-close:hover{background:#f5f5f0}
+.modal-emoji{font-size:2rem;margin-right:12px}
+.modal-body{padding:1.25rem 1.5rem 1.5rem}
+.modal-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;border-bottom:1px solid #f5f0e8;
+}
+.modal-item:last-child{border-bottom:none}
+.item-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;margin-top:6px;
+}
+.item-name{font-weight:600;font-size:0.9rem;color:var(--green-dark)}
+.item-desc{font-size:0.78rem;color:var(--text-muted);margin-top:2px;line-height:1.5}
+
 /* FOOTER */
 footer{background:var(--green-dark);color:rgba(255,255,255,0.65);text-align:center;padding:2rem 1.5rem;font-size:0.85rem}
 footer strong{color:var(--gold-light)}
@@ -158,7 +199,7 @@ footer strong{color:var(--gold-light)}
   <p class="hero-sub">Cung cấp các loại gạo đặc sản, gạo thông thường và phụ phẩm lúa gạo — thẳng từ vùng lúa Bạc Liêu.</p>
   <div class="update-badge"><span class="dot"></span>Giá cập nhật hàng tuần</div>
   <div class="hero-cta">
-    <a href="#bang-gia" class="btn-primary">Xem bảng giá</a>
+    <button class="btn-primary" onclick="openModal('banggia')">Xem bảng giá</button>
     <a href="#lien-he" class="btn-outline">Liên hệ mua hàng</a>
   </div>
 </section>
@@ -175,52 +216,60 @@ footer strong{color:var(--gold-light)}
     <h2 class="section-title">Sản phẩm cung cấp</h2>
     <p class="section-sub">Gạo và phụ phẩm lúa gạo chất lượng, thu mua trực tiếp từ nông dân địa phương.</p>
     <div class="products-grid">
-      <div class="product-card">
+      <div class="product-card" onclick="openModal('thom')" style="cursor:pointer">
         <div class="product-img" style="background:#fffbea">🌾</div>
         <div class="product-body">
           <div class="product-name">Gạo thơm đặc sản</div>
           <div class="product-desc">ST24, ST25, Jasmine — hạt dài, thơm tự nhiên</div>
-          <span class="product-tag">Bán sỉ & lẻ</span>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="openModal('thuong')" style="cursor:pointer">
         <div class="product-img" style="background:#f5f5f0">🍚</div>
         <div class="product-body">
           <div class="product-name">Gạo thông thường</div>
           <div class="product-desc">OM5451, IR504, gạo trắng hạt dài các loại</div>
-          <span class="product-tag">Số lượng lớn</span>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-img" style="background:#fdf6ec">🟡</div>
+      <div class="product-card" onclick="openModal('phuham')" style="cursor:pointer">
+        <div class="product-img" style="background:#fdf6ec">🌾</div>
         <div class="product-body">
-          <div class="product-name">Cám gạo</div>
-          <div class="product-desc">Cám tươi, cám ép — dùng cho chăn nuôi</div>
-          <span class="product-tag">Phụ phẩm</span>
+          <div class="product-name">Phụ phẩm chăn nuôi</div>
+          <div class="product-desc">Cám mịn, cám to, gạo phế, tấm phế và nhiều loại khác</div>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="openModal('tam')" style="cursor:pointer">
         <div class="product-img" style="background:#fdfaf3">⚪</div>
         <div class="product-body">
           <div class="product-name">Tấm gạo</div>
           <div class="product-desc">Tấm nguyên và tấm mịn, dùng làm bún phở</div>
-          <span class="product-tag">Phụ phẩm</span>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="openModal('trau')" style="cursor:pointer">
         <div class="product-img" style="background:#f8f4ee">🌿</div>
         <div class="product-body">
-          <div class="product-name">Trấu</div>
-          <div class="product-desc">Làm chất đốt, trồng nấm, lọc nước</div>
-          <span class="product-tag">Phụ phẩm</span>
+          <div class="product-name">Trấu & Rơm</div>
+          <div class="product-desc">Làm chất đốt, trồng nấm, thức ăn gia súc</div>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="openModal('lua')" style="cursor:pointer">
         <div class="product-img" style="background:#f3faf0">🌱</div>
         <div class="product-body">
-          <div class="product-name">Lúa giống</div>
-          <div class="product-desc">Lúa nguyên liệu theo mùa vụ</div>
-          <span class="product-tag">Theo mùa</span>
+          <div class="product-name">Lúa gà</div>
+          <div class="product-desc">Lúa 504, 202, 380, Cửu Long, Phú Yên, Nhật...</div>
+          <span class="product-tag">Bấm để xem chi tiết</span>
+        </div>
+      </div>
+      <div class="product-card" onclick="openModal('thucduong')" style="cursor:pointer">
+        <div class="product-img" style="background:#f5eef8">🟤</div>
+        <div class="product-body">
+          <div class="product-name">Gạo thực dưỡng</div>
+          <div class="product-desc">Gạo lứt đỏ, lứt đen, huyết rồng — tốt cho sức khỏe</div>
+          <span class="product-tag">Bấm để xem chi tiết</span>
         </div>
       </div>
     </div>
@@ -297,7 +346,135 @@ footer strong{color:var(--gold-light)}
   <span style="font-size:0.78rem;margin-top:6px;display:block">Cung cấp gạo và phụ phẩm lúa gạo chất lượng từ vùng ĐBSCL</span>
 </footer>
 
+<!-- MODALS -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center">
+        <span class="modal-emoji" id="modal-emoji"></span>
+        <h3 id="modal-title"></h3>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
 <script>
+const products = {
+  banggia: {
+    emoji: '💰',
+    title: 'Bảng giá tham khảo',
+    items: [
+      {name:'Gạo ST25', desc:'Đặc sản cao cấp · Liên hệ để biết giá'},
+      {name:'Gạo Jasmine', desc:'Gạo thơm nhập khẩu · Liên hệ để biết giá'},
+      {name:'Gạo OM5451', desc:'Phổ thông, giá tốt · Liên hệ để biết giá'},
+      {name:'Gạo lứt thực dưỡng', desc:'Lứt đỏ, lứt đen, huyết rồng · Liên hệ để biết giá'},
+      {name:'Cám gạo tươi', desc:'Dùng cho chăn nuôi · Liên hệ để biết giá'},
+      {name:'Tấm gạo', desc:'Tấm nguyên / tấm mịn · Liên hệ để biết giá'},
+      {name:'Trấu & Rơm', desc:'Theo số lượng · Liên hệ để biết giá'},
+      {name:'📞 Lưu ý', desc:'Giá cập nhật hàng tuần theo thị trường — liên hệ trực tiếp để nhận báo giá mới nhất'},
+    ]
+  },
+  thom: {
+    emoji: '🌾',
+    title: 'Gạo thơm đặc sản',
+    items: [
+      {name:'ST25', desc:'Gạo ngon nhất Việt Nam — hạt dài, cơm dẻo, thơm tự nhiên'},
+      {name:'ST24', desc:'Hạt dài, trắng trong, thơm nhẹ — phù hợp xuất khẩu'},
+      {name:'Jasmine', desc:'Gạo thơm hạt dài, cơm mềm, phổ biến thị trường'},
+      {name:'Nàng Hoa 9', desc:'Đặc sản vùng ĐBSCL, hương thơm đặc trưng'},
+    ]
+  },
+  thuong: {
+    emoji: '🍚',
+    title: 'Gạo thông thường',
+    items: [
+      {name:'OM5451', desc:'Hạt dài, trắng, cơm mềm — phổ thông, giá tốt'},
+      {name:'IR504', desc:'Hạt dài trong, cơm ráo — dùng nhiều trong chế biến'},
+      {name:'OM18', desc:'Gạo trắng hạt dài, năng suất cao, giá cạnh tranh'},
+      {name:'Đài Thơm 8', desc:'Hạt dài, thơm nhẹ, cơm mềm vừa'},
+    ]
+  },
+  phuham: {
+    emoji: '🌾',
+    title: 'Phụ phẩm chăn nuôi',
+    items: [
+      {name:'Cám Mịn', desc:'Cám xay mịn, giàu dinh dưỡng — dùng cho heo, gà, vịt'},
+      {name:'Cám To', desc:'Cám thô nguyên hạt — phù hợp trộn thức ăn chăn nuôi'},
+      {name:'Cám Trộn', desc:'Hỗn hợp cám đã phối trộn sẵn, tiện sử dụng'},
+      {name:'Gạo Phế', desc:'Gạo tấm nhỏ, gạo vỡ — dùng làm thức ăn gia súc'},
+      {name:'Tấm Phế', desc:'Tấm vỡ nhỏ, phụ phẩm xay xát — giá trị dinh dưỡng cao'},
+      {name:'Lứt Phế', desc:'Gạo lứt còn vỏ cám — dùng trong chăn nuôi'},
+    ]
+  },
+  tam: {
+    emoji: '⚪',
+    title: 'Tấm gạo',
+    items: [
+      {name:'Tấm Nguyên', desc:'Hạt tấm lớn nguyên, dùng nấu cơm tấm, bún, phở'},
+      {name:'Tấm Mịn', desc:'Tấm xay nhỏ mịn — dùng làm bột, bánh, thức ăn chăn nuôi'},
+    ]
+  },
+  trau: {
+    emoji: '🌿',
+    title: 'Trấu & Rơm',
+    items: [
+      {name:'Trấu', desc:'Vỏ lúa khô — dùng làm chất đốt, trồng nấm, lọc nước, độn chuồng'},
+      {name:'Rơm', desc:'Rơm khô — dùng làm thức ăn gia súc, phân bón, độn chuồng'},
+    ]
+  },
+  thucduong: {
+    emoji: '🟤',
+    title: 'Gạo thực dưỡng',
+    items: [
+      {name:'Gạo lứt đỏ', desc:'Giàu sắt, vitamin nhóm B — tốt cho người ăn kiêng và người lớn tuổi'},
+      {name:'Gạo lứt đen (gạo cẩm)', desc:'Chứa nhiều chất chống oxy hóa anthocyanin — hỗ trợ tim mạch'},
+      {name:'Gạo lứt huyết rồng', desc:'Hạt cứng, chứa hàm lượng dinh dưỡng và chất xơ cao'},
+      {name:'💡 Lợi ích', desc:'Hỗ trợ tiêu hóa, ổn định đường huyết, kiểm soát cân nặng và làm sạch cơ thể'},
+      {name:'🍚 Cách dùng', desc:'Nên ngâm gạo từ 30 phút đến 1 tiếng trước khi nấu để cơm mềm và dễ tiêu hóa hơn'},
+    ]
+  },
+  lua: {
+    emoji: '🌱',
+    title: 'Lúa gà',
+    items: [
+      {name:'Lúa 504', desc:'Giống lúa phổ biến, năng suất cao, hạt dài'},
+      {name:'Lúa 202', desc:'Giống truyền thống, thích nghi tốt vùng ĐBSCL'},
+      {name:'Lúa 380', desc:'Giống lúa cao sản, kháng bệnh tốt'},
+      {name:'Lúa Cửu Long', desc:'Giống đặc sản vùng sông Cửu Long'},
+      {name:'Lúa Phú Yên', desc:'Giống nhập từ miền Trung, hạt tròn chắc'},
+      {name:'Lúa Nhật', desc:'Giống lúa Nhật Bản, hạt tròn, cơm dẻo đặc trưng'},
+    ]
+  }
+};
+
+function openModal(key){
+  const p = products[key];
+  document.getElementById('modal-emoji').textContent = p.emoji;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-body').innerHTML = p.items.map(i=>`
+    <div class="modal-item">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-name">${i.name}</div>
+        <div class="item-desc">${i.desc}</div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(e){
+  if(e.target===document.getElementById('modal')) closeModalDirect();
+}
+
+function closeModalDirect(){
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow='';
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
