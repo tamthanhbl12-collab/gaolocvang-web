@@ -236,8 +236,45 @@ footer strong{color:var(--gold-light)}
 }
 .fanpage-btn:hover{background:var(--green-mid)}
 
-@media(max-width:640px){
-  .stats{grid-template-columns:1fr}
+/* FORM LIÊN HỆ */
+.form-section{background:#fff;padding:2rem;border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-top:1.5rem}
+.form-title{font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#fff;background:var(--green-mid);padding:12px 20px;border-radius:8px;margin-bottom:1.5rem;text-align:center}
+.form-row{margin-bottom:1rem}
+.form-label{font-size:0.82rem;font-weight:500;color:var(--green-dark);margin-bottom:5px;display:block}
+.form-input{width:100%;padding:10px 12px;border:1.5px solid #e0ddd5;border-radius:8px;font-size:0.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:var(--green-mid)}
+.form-textarea{width:100%;padding:10px 12px;border:1.5px solid #e0ddd5;border-radius:8px;font-size:0.88rem;font-family:'Inter',sans-serif;outline:none;resize:vertical;min-height:100px;transition:border-color 0.2s}
+.form-textarea:focus{border-color:var(--green-mid)}
+.form-btn{width:100%;background:var(--green-mid);color:#fff;padding:13px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;margin-top:0.5rem}
+.form-btn:hover{background:var(--green-dark)}
+.form-note{font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:8px}
+
+/* TIN TỨC */
+.tintuc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:2rem}
+.tintuc-card{background:#fff;border-radius:var(--radius);border:1px solid #e8e2d0;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer}
+.tintuc-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.tintuc-img{height:160px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.tintuc-body{padding:1rem}
+.tintuc-tag{font-size:0.7rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em}
+.tintuc-title{font-weight:600;font-size:0.92rem;color:var(--green-dark);margin:6px 0;line-height:1.4}
+.tintuc-desc{font-size:0.8rem;color:var(--text-muted);line-height:1.5}
+.tintuc-date{font-size:0.75rem;color:#aaa;margin-top:8px}
+
+/* TUYỂN DỤNG */
+.tuyendung-list{display:flex;flex-direction:column;gap:16px;margin-top:2rem}
+.tuyendung-card{background:#fff;border-radius:var(--radius);border:1px solid #e8e2d0;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.td-icon{width:48px;height:48px;border-radius:10px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.td-title{font-weight:600;font-size:0.95rem;color:var(--green-dark);margin-bottom:4px}
+.td-info{font-size:0.8rem;color:var(--text-muted);line-height:1.6}
+.td-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.td-tag{font-size:0.7rem;padding:3px 10px;border-radius:20px;font-weight:500}
+.td-tag.full{background:#e8f5e3;color:var(--green-mid)}
+.td-tag.hot{background:#fff0e8;color:#e07030}
+.td-btn{margin-left:auto;background:var(--green-mid);color:#fff;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:500;border:none;cursor:pointer;white-space:nowrap;align-self:center;flex-shrink:0}
+.td-btn:hover{background:var(--green-dark)}
+.td-note{font-size:0.82rem;color:var(--text-muted);margin-top:1.5rem;padding:1rem;background:var(--green-light);border-radius:8px;text-align:center}
+
+@media(max-width:580px){.tuyendung-card{flex-wrap:wrap}.td-btn{width:100%}}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
   .stat:last-child{border-bottom:none}
   .contact-grid{grid-template-columns:1fr}
@@ -270,6 +307,8 @@ footer strong{color:var(--gold-light)}
   <button class="nav-item" onclick="showTab('gioithieu')">Giới thiệu</button>
   <button class="nav-item" onclick="showTab('sanpham')">Sản phẩm</button>
   <button class="nav-item" onclick="showTab('banggia')">Bảng giá</button>
+  <button class="nav-item" onclick="showTab('tintuc')">Tin tức</button>
+  <button class="nav-item" onclick="showTab('tuyendung')">Tuyển dụng</button>
   <button class="nav-item" onclick="showTab('lienhe')">Liên hệ</button>
 </div>
 
@@ -315,7 +354,7 @@ footer strong{color:var(--gold-light)}
         </div>
       </div>
       <div class="product-card" onclick="openModal('thucduong')" style="cursor:pointer">
-        <div class="product-img" style="background:#f5eef8">🟤</div>
+        <div class="product-img" style="background:#f5eef8">🫘</div>
         <div class="product-body">
           <div class="product-name">Gạo thực dưỡng</div>
           <div class="product-desc">Gạo lứt đỏ, lứt đen, huyết rồng — tốt cho sức khỏe</div>
@@ -331,7 +370,7 @@ footer strong{color:var(--gold-light)}
         </div>
       </div>
       <div class="product-card" onclick="openModal('nep')" style="cursor:pointer">
-        <div class="product-img" style="background:#fdf6f0">🫙</div>
+        <div class="product-img" style="background:#fdf6f0">🍡</div>
         <div class="product-body">
           <div class="product-name">Nếp</div>
           <div class="product-desc">Nếp ngỗng, nếp bắc — dẻo thơm, dùng làm xôi, bánh</div>
@@ -339,7 +378,7 @@ footer strong{color:var(--gold-light)}
         </div>
       </div>
       <div class="product-card" onclick="openModal('tam')" style="cursor:pointer">
-        <div class="product-img" style="background:#fdfaf3">⚪</div>
+        <div class="product-img" style="background:#fdfaf3">🍳</div>
         <div class="product-body">
           <div class="product-name">Tấm cơm</div>
           <div class="product-desc">Tấm nguyên, tấm mịn — dùng nấu cơm tấm, bún, phở</div>
@@ -347,7 +386,7 @@ footer strong{color:var(--gold-light)}
         </div>
       </div>
       <div class="product-card" onclick="openModal('phuham')" style="cursor:pointer">
-        <div class="product-img" style="background:#fdf6ec">🌾</div>
+        <div class="product-img" style="background:#fdf6ec">🐖</div>
         <div class="product-body">
           <div class="product-name">Phụ phẩm chăn nuôi</div>
           <div class="product-desc">Cám, tấm chăn nuôi, phế phẩm, lúa gà đá, vịt...</div>
@@ -368,7 +407,81 @@ footer strong{color:var(--gold-light)}
 
 
 
-<!-- BẢNG GIÁ TAB -->
+<!-- TIN TỨC -->
+<div id="tab-tintuc" style="display:none;background:#fff;padding:5rem 1.5rem">
+  <div class="inner">
+    <div class="section-eyebrow">Cập nhật mới nhất</div>
+    <h2 class="section-title">Tin tức nông nghiệp</h2>
+    <p class="section-sub">Thông tin thị trường lúa gạo, giá cả, mùa vụ và các tin tức nông nghiệp ĐBSCL.</p>
+    <div class="tintuc-grid">
+      <div class="tintuc-card">
+        <div class="tintuc-img">🌾</div>
+        <div class="tintuc-body">
+          <div class="tintuc-tag">Thị trường</div>
+          <div class="tintuc-title">— Tiêu đề bài viết sẽ cập nhật tại đây —</div>
+          <div class="tintuc-desc">Nội dung tóm tắt bài viết về thị trường lúa gạo ĐBSCL...</div>
+          <div class="tintuc-date">📅 Sẽ cập nhật</div>
+        </div>
+      </div>
+      <div class="tintuc-card">
+        <div class="tintuc-img">📈</div>
+        <div class="tintuc-body">
+          <div class="tintuc-tag">Giá cả</div>
+          <div class="tintuc-title">— Tiêu đề bài viết sẽ cập nhật tại đây —</div>
+          <div class="tintuc-desc">Nội dung tóm tắt về diễn biến giá gạo trong tuần...</div>
+          <div class="tintuc-date">📅 Sẽ cập nhật</div>
+        </div>
+      </div>
+      <div class="tintuc-card">
+        <div class="tintuc-img">🌿</div>
+        <div class="tintuc-body">
+          <div class="tintuc-tag">Mùa vụ</div>
+          <div class="tintuc-title">— Tiêu đề bài viết sẽ cập nhật tại đây —</div>
+          <div class="tintuc-desc">Thông tin về lịch thời vụ sản xuất lúa tại Bạc Liêu...</div>
+          <div class="tintuc-date">📅 Sẽ cập nhật</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TUYỂN DỤNG -->
+<div id="tab-tuyendung" style="display:none;background:var(--green-light);padding:5rem 1.5rem">
+  <div style="max-width:800px;margin:0 auto">
+    <div class="section-eyebrow">Cơ hội nghề nghiệp</div>
+    <h2 class="section-title">Tuyển dụng</h2>
+    <p class="section-sub">Gạo Lộc Vàng tìm kiếm những người tâm huyết, cùng phát triển lâu dài.</p>
+    <div class="tuyendung-list">
+      <div class="tuyendung-card">
+        <div class="td-icon">🚛</div>
+        <div>
+          <div class="td-title">— Vị trí tuyển dụng sẽ cập nhật —</div>
+          <div class="td-info">Mô tả công việc, yêu cầu, quyền lợi sẽ được bổ sung sớm.</div>
+          <div class="td-tags">
+            <span class="td-tag hot">Đang tuyển</span>
+            <span class="td-tag full">Toàn thời gian</span>
+          </div>
+        </div>
+        <button class="td-btn">Ứng tuyển</button>
+      </div>
+      <div class="tuyendung-card">
+        <div class="td-icon">📦</div>
+        <div>
+          <div class="td-title">— Vị trí tuyển dụng sẽ cập nhật —</div>
+          <div class="td-info">Mô tả công việc, yêu cầu, quyền lợi sẽ được bổ sung sớm.</div>
+          <div class="td-tags">
+            <span class="td-tag hot">Đang tuyển</span>
+            <span class="td-tag full">Toàn thời gian</span>
+          </div>
+        </div>
+        <button class="td-btn">Ứng tuyển</button>
+      </div>
+    </div>
+    <div class="td-note">📞 Liên hệ trực tiếp: <strong>0962.120.839</strong> để biết thêm thông tin tuyển dụng</div>
+  </div>
+</div>
+
+<!-- LIÊN HỆ -->
 <div id="tab-banggia" style="display:none;background:var(--green-light);padding:5rem 1.5rem">
   <div style="max-width:900px;margin:0 auto">
     <div class="section-eyebrow">Cập nhật hàng tuần</div>
@@ -421,6 +534,39 @@ footer strong{color:var(--gold-light)}
       <span style="font-size:2rem">🗺️</span>
       <span>Bản đồ địa điểm</span>
       <span style="font-size:0.75rem">Thêm Google Maps vào đây</span>
+    </div>
+    <div class="form-section">
+      <div class="form-title">YÊU CẦU TƯ VẤN / BÁO GIÁ GẠO SỈ</div>
+      <div class="form-row">
+        <label class="form-label">Họ tên *</label>
+        <input class="form-input" type="text" placeholder="Nhập họ tên của bạn" id="f-hoten"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Số điện thoại *</label>
+        <input class="form-input" type="tel" placeholder="Nhập số điện thoại" id="f-sdt"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Địa chỉ (tỉnh/thành phố) *</label>
+        <input class="form-input" type="text" placeholder="Nhập địa chỉ" id="f-diachi"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Địa chỉ Email (không bắt buộc)</label>
+        <input class="form-input" type="email" placeholder="Nhập email" id="f-email"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Tên loại gạo cần mua *</label>
+        <input class="form-input" type="text" placeholder="VD: Gạo ST25, cám mịn..." id="f-loaigao"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Số lượng (kg)</label>
+        <input class="form-input" type="number" placeholder="Nhập số lượng" id="f-soluong"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Ghi chú (không bắt buộc)</label>
+        <textarea class="form-textarea" placeholder="Ghi chú thêm về yêu cầu của bạn..." id="f-ghichu"></textarea>
+      </div>
+      <button class="form-btn" onclick="guiYeuCau()">GỬI YÊU CẦU</button>
+      <p class="form-note" id="f-msg"></p>
     </div>
   </div>
 </div>
@@ -621,6 +767,29 @@ function closeModalDirect(){
   document.body.style.overflow='';
 }
 
+function guiYeuCau(){
+  const hoten = document.getElementById('f-hoten').value.trim();
+  const sdt = document.getElementById('f-sdt').value.trim();
+  const diachi = document.getElementById('f-diachi').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const loaigao = document.getElementById('f-loaigao').value.trim();
+  const soluong = document.getElementById('f-soluong').value.trim();
+  const ghichu = document.getElementById('f-ghichu').value.trim();
+  const msg = document.getElementById('f-msg');
+
+  if(!hoten||!sdt||!loaigao){
+    msg.style.color='#e03a3a';
+    msg.textContent='⚠️ Vui lòng điền đầy đủ họ tên, số điện thoại và loại gạo cần mua.';
+    return;
+  }
+
+  const text = `Yêu cầu báo giá - Gạo Lộc Vàng\n👤 Họ tên: ${hoten}\n📞 SĐT: ${sdt}\n📍 Địa chỉ: ${diachi}\n📧 Email: ${email||'Không có'}\n🌾 Loại gạo: ${loaigao}\n⚖️ Số lượng: ${soluong||'Chưa xác định'} kg\n📝 Ghi chú: ${ghichu||'Không có'}`;
+  const encoded = encodeURIComponent(text);
+  window.open(`https://zalo.me/0962120839?text=${encoded}`,'_blank');
+  msg.style.color='var(--green-mid)';
+  msg.textContent='✅ Đang mở Zalo để gửi yêu cầu...';
+}
+
 function renderBangGia(){
   const p = products['banggia'];
   let html = '';
@@ -644,8 +813,8 @@ function renderBangGia(){
 }
 
 function showTab(tab){
-  const allTabs = ['gioithieu','sanpham','banggia','lienhe'];
-  const labels = {trangchu:'Trang chủ',gioithieu:'Giới thiệu',sanpham:'Sản phẩm',banggia:'Bảng giá',lienhe:'Liên hệ'};
+  const allTabs = ['gioithieu','sanpham','banggia','tintuc','tuyendung','lienhe'];
+  const labels = {trangchu:'Trang chủ',gioithieu:'Giới thiệu',sanpham:'Sản phẩm',banggia:'Bảng giá',tintuc:'Tin tức',tuyendung:'Tuyển dụng',lienhe:'Liên hệ'};
 
   if(tab==='trangchu'){
     allTabs.forEach(t=>{
