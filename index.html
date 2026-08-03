@@ -274,6 +274,10 @@ footer strong{color:var(--gold-light)}
 .td-btn:hover{background:var(--green-dark)}
 .td-note{font-size:0.82rem;color:var(--text-muted);margin-top:1.5rem;padding:1rem;background:var(--green-light);border-radius:8px;text-align:center}
 
+@media(max-width:768px){
+  #tab-lienhe>div{grid-template-columns:1fr !important}
+  #tab-lienhe>div>div:first-child>div[style*="grid"]{grid-template-columns:1fr !important}
+}
 @media(max-width:580px){.tuyendung-card{flex-wrap:wrap}.td-btn{width:100%}}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
   .stat:last-child{border-bottom:none}
@@ -493,49 +497,59 @@ footer strong{color:var(--gold-light)}
 </div>
 
 <div class="contact-wrap" id="tab-lienhe">
-  <div class="contact-grid">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start">
+
+    <!-- CỘT TRÁI: thông tin + bản đồ -->
     <div>
       <div class="section-eyebrow">Liên hệ</div>
       <h2 class="section-title">Đặt hàng<br>nhanh chóng</h2>
       <p class="section-sub">Giao hàng tận nơi khu vực Bạc Liêu và các tỉnh lân cận. Hỗ trợ mua sỉ số lượng lớn.</p>
-      <div class="contact-info">
-        <div class="contact-row">
-          <div class="contact-icon">📞</div>
-          <div>
-            <div class="contact-label">Điện thoại / Zalo</div>
-            <div class="contact-val">0962.120.839</div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-icon">📍</div>
-          <div>
-            <div class="contact-label">Địa chỉ</div>
-            <div class="contact-val">234 Cao Văn Lầu, Phường Nhà Mát, Bạc Liêu</div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-icon">🕐</div>
-          <div>
-            <div class="contact-label">Giờ làm việc</div>
-            <div class="contact-val">Thứ 2 – Thứ 7 · 7:00 – 18:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="fanpage-box">
-        <div class="fanpage-icon">f</div>
+
+      <!-- Thông tin + bản đồ ngang nhau -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem">
         <div>
-          <div class="fanpage-label">Fanpage Facebook</div>
-          <div class="fanpage-name">Gạo Lộc Vàng</div>
+          <div class="contact-info">
+            <div class="contact-row">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-label">Điện thoại / Zalo</div>
+                <div class="contact-val">0962.120.839</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-label">Địa chỉ</div>
+                <div class="contact-val">234 Cao Văn Lầu, Phường Nhà Mát, Bạc Liêu</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <div class="contact-label">Giờ làm việc</div>
+                <div class="contact-val">Thứ 2 – Thứ 7 · 7:00 – 18:00</div>
+              </div>
+            </div>
+          </div>
+          <div class="fanpage-box" style="margin-top:1rem">
+            <div class="fanpage-icon">f</div>
+            <div>
+              <div class="fanpage-label">Fanpage Facebook</div>
+              <div class="fanpage-name">Gạo Lộc Vàng</div>
+            </div>
+            <a href="#" class="fanpage-btn" id="fanpage-link">Theo dõi</a>
+          </div>
         </div>
-        <a href="#" class="fanpage-btn" id="fanpage-link">Theo dõi</a>
+        <div class="map-box">
+          <span style="font-size:2rem">🗺️</span>
+          <span>Bản đồ địa điểm</span>
+          <span style="font-size:0.75rem">Thêm Google Maps vào đây</span>
+        </div>
       </div>
     </div>
-    <div class="map-box">
-      <span style="font-size:2rem">🗺️</span>
-      <span>Bản đồ địa điểm</span>
-      <span style="font-size:0.75rem">Thêm Google Maps vào đây</span>
-    </div>
-    <div class="form-section">
+
+    <!-- CỘT PHẢI: form sidebar -->
+    <div class="form-section" style="position:sticky;top:80px">
       <div class="form-title">YÊU CẦU TƯ VẤN / BÁO GIÁ GẠO SỈ</div>
       <div class="form-row">
         <label class="form-label">Họ tên *</label>
@@ -550,11 +564,11 @@ footer strong{color:var(--gold-light)}
         <input class="form-input" type="text" placeholder="Nhập địa chỉ" id="f-diachi"/>
       </div>
       <div class="form-row">
-        <label class="form-label">Địa chỉ Email (không bắt buộc)</label>
+        <label class="form-label">Email (không bắt buộc)</label>
         <input class="form-input" type="email" placeholder="Nhập email" id="f-email"/>
       </div>
       <div class="form-row">
-        <label class="form-label">Tên loại gạo cần mua *</label>
+        <label class="form-label">Loại gạo cần mua *</label>
         <input class="form-input" type="text" placeholder="VD: Gạo ST25, cám mịn..." id="f-loaigao"/>
       </div>
       <div class="form-row">
@@ -563,11 +577,12 @@ footer strong{color:var(--gold-light)}
       </div>
       <div class="form-row">
         <label class="form-label">Ghi chú (không bắt buộc)</label>
-        <textarea class="form-textarea" placeholder="Ghi chú thêm về yêu cầu của bạn..." id="f-ghichu"></textarea>
+        <textarea class="form-textarea" placeholder="Ghi chú thêm..." id="f-ghichu"></textarea>
       </div>
       <button class="form-btn" onclick="guiYeuCau()">GỬI YÊU CẦU</button>
       <p class="form-note" id="f-msg"></p>
     </div>
+
   </div>
 </div>
 
