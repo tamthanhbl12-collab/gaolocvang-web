@@ -260,8 +260,8 @@ footer strong{color:var(--gold-light)}
 
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Năm kinh nghiệm</div></div>
-  <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Loại sản phẩm</div></div>
+  <div class="stat"><div class="stat-num">30+</div><div class="stat-lbl">Năm kinh nghiệm</div></div>
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-lbl">Loại sản phẩm</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Kho hàng</div></div>
 </div>
 
@@ -664,7 +664,8 @@ function showTab(tab){
     btn.classList.toggle('active', btn.textContent.trim()===labels[tab]);
   });
 
-  window.scrollTo({top:0,behavior:'smooth'});
+  // Scroll đến nav bar
+  document.querySelector('.nav').scrollIntoView({behavior:'smooth'});
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
